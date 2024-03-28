@@ -29,7 +29,7 @@ app.use('/api/v2', collectionRoutes)
 app.use('/api/v2', itemRoutes)
 
 mongoose
-    .connect(process.env.MONGODB_URL)
+    .connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('App connected to db');
         app.use('/api/v2', regRoutes)
