@@ -19,7 +19,7 @@ app.use(cors({
     credentials: true,
 }));
 
-app.use('/uploads/v2', express.static('uploads'));
+app.use('/uploads', express.static('uploads'));
 
 app.get('/', (req, res) => {
     console.log(req);
@@ -27,14 +27,14 @@ app.get('/', (req, res) => {
     return res.status(234).send("WELCOME");
 });
 
-app.use('/api/v2', collectionRoutes)
-app.use('/api/v2', itemRoutes)
+app.use('/api', collectionRoutes)
+app.use('/api', itemRoutes)
 
 mongoose
     .connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('App connected to db');
-        app.use('/api/v2', regRoutes)
+        app.use('/api', regRoutes)
         app.use(errorMiddleware);
         app.listen(process.env.PORT, () => {
             console.log(`App is listening to port ${process.env.PORT}`);
