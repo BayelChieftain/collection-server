@@ -34,7 +34,7 @@ app.options('*', cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'https://660596f1dc0d7831075f71ed--magnificent-zabaione-fb869f.netlify.app',
+    origin: 'https://lucky-swan-25800b.netlify.app',
     credentials: true,
 }));
 
